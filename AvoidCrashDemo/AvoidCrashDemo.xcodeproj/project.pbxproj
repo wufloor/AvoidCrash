@@ -25,6 +25,9 @@
 		04FB61D91DB2361400C079F2 /* NSAttributedString+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB61D81DB2361400C079F2 /* NSAttributedString+AvoidCrash.m */; };
 		04FB61DC1DB25FE500C079F2 /* NSMutableAttributedString+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FB61DB1DB25FE500C079F2 /* NSMutableAttributedString+AvoidCrash.m */; };
 		04FEB8FF1DA55E6B00B5647E /* NSMutableString+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FEB8FE1DA55E6B00B5647E /* NSMutableString+AvoidCrash.m */; };
+		213F83E92AC11CED00A62B0D /* UIViewController+AvoidCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 213F83E82AC11CED00A62B0D /* UIViewController+AvoidCrash.m */; };
+		213F83EC2AC1594200A62B0D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 213F83EB2AC1594200A62B0D /* SceneDelegate.m */; };
+		217E0A852AC26F7C0074E799 /* BViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 217E0A842AC26F7C0074E799 /* BViewController.m */; };
 		F61CF29C1FF2206D006093D9 /* AvoidCrashPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = F61CF29B1FF2206D006093D9 /* AvoidCrashPerson.m */; };
 		F63018CE1F22EFA000F176DF /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = F63018CD1F22EFA000F176DF /* Person.m */; };
 		F6EBB7B51F271CCB00ED3B15 /* AvoidCrashStubProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = F6EBB7B41F271CCB00ED3B15 /* AvoidCrashStubProxy.m */; };
@@ -84,6 +87,12 @@
 		04FB61DB1DB25FE500C079F2 /* NSMutableAttributedString+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableAttributedString+AvoidCrash.m"; sourceTree = "<group>"; };
 		04FEB8FD1DA55E6B00B5647E /* NSMutableString+AvoidCrash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+AvoidCrash.h"; sourceTree = "<group>"; };
 		04FEB8FE1DA55E6B00B5647E /* NSMutableString+AvoidCrash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+AvoidCrash.m"; sourceTree = "<group>"; };
+		213F83E72AC11CED00A62B0D /* UIViewController+AvoidCrash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AvoidCrash.h"; sourceTree = "<group>"; };
+		213F83E82AC11CED00A62B0D /* UIViewController+AvoidCrash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AvoidCrash.m"; sourceTree = "<group>"; };
+		213F83EA2AC1594200A62B0D /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		213F83EB2AC1594200A62B0D /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		217E0A832AC26F7C0074E799 /* BViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BViewController.h; sourceTree = "<group>"; };
+		217E0A842AC26F7C0074E799 /* BViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BViewController.m; sourceTree = "<group>"; };
 		F61CF29A1FF2206D006093D9 /* AvoidCrashPerson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AvoidCrashPerson.h; sourceTree = "<group>"; };
 		F61CF29B1FF2206D006093D9 /* AvoidCrashPerson.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AvoidCrashPerson.m; sourceTree = "<group>"; };
 		F63018CC1F22EFA000F176DF /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
@@ -155,6 +164,10 @@
 				043C63F01D938EE100A0B0E9 /* LaunchScreen.storyboard */,
 				043C63F31D938EE100A0B0E9 /* Info.plist */,
 				043C63E21D938EE100A0B0E9 /* Supporting Files */,
+				213F83EA2AC1594200A62B0D /* SceneDelegate.h */,
+				213F83EB2AC1594200A62B0D /* SceneDelegate.m */,
+				217E0A832AC26F7C0074E799 /* BViewController.h */,
+				217E0A842AC26F7C0074E799 /* BViewController.m */,
 			);
 			path = AvoidCrashDemo;
 			sourceTree = "<group>";
@@ -211,6 +224,8 @@
 				04FB61D81DB2361400C079F2 /* NSAttributedString+AvoidCrash.m */,
 				04FB61DA1DB25FE500C079F2 /* NSMutableAttributedString+AvoidCrash.h */,
 				04FB61DB1DB25FE500C079F2 /* NSMutableAttributedString+AvoidCrash.m */,
+				213F83E72AC11CED00A62B0D /* UIViewController+AvoidCrash.h */,
+				213F83E82AC11CED00A62B0D /* UIViewController+AvoidCrash.m */,
 			);
 			name = AvoidCrash;
 			path = ../../AvoidCrash;
@@ -301,6 +316,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -349,6 +365,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				043C64221D93A60C00A0B0E9 /* NSDictionary+AvoidCrash.m in Sources */,
+				217E0A852AC26F7C0074E799 /* BViewController.m in Sources */,
 				043C64211D93A60C00A0B0E9 /* NSArray+AvoidCrash.m in Sources */,
 				043C63EA1D938EE100A0B0E9 /* ViewController.m in Sources */,
 				F6EBB7B51F271CCB00ED3B15 /* AvoidCrashStubProxy.m in Sources */,
@@ -361,6 +378,8 @@
 				043C64231D93A60C00A0B0E9 /* NSMutableArray+AvoidCrash.m in Sources */,
 				04FB61D91DB2361400C079F2 /* NSAttributedString+AvoidCrash.m in Sources */,
 				04FB61DC1DB25FE500C079F2 /* NSMutableAttributedString+AvoidCrash.m in Sources */,
+				213F83EC2AC1594200A62B0D /* SceneDelegate.m in Sources */,
+				213F83E92AC11CED00A62B0D /* UIViewController+AvoidCrash.m in Sources */,
 				F63018CE1F22EFA000F176DF /* Person.m in Sources */,
 				043C64241D93A60C00A0B0E9 /* NSMutableDictionary+AvoidCrash.m in Sources */,
 				043C64201D93A60C00A0B0E9 /* AvoidCrash.m in Sources */,
@@ -454,7 +473,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -492,7 +511,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -508,7 +527,7 @@
 				DEVELOPMENT_TEAM = H659824MAF;
 				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				INFOPLIST_FILE = AvoidCrashDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = chenfanfang.AvoidCrashDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -525,7 +544,7 @@
 				DEVELOPMENT_TEAM = "";
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				INFOPLIST_FILE = AvoidCrashDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = chenfanfang.AvoidCrashDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

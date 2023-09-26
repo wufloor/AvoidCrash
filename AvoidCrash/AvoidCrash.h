@@ -32,6 +32,7 @@
 //define
 #import "AvoidCrashStubProxy.h"
 
+#import "UIViewController+AvoidCrash.h"
 
 
 

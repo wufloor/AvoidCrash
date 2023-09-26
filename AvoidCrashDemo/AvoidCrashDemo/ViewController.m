@@ -7,17 +7,23 @@
 //
 
 #import "ViewController.h"
-
+#import "BViewController.h"
 #import "Person.h"
 #import "AvoidCrashPerson.h"
 
 @interface ViewController ()
 
-
+@property (nonatomic,strong)BViewController *viewControllerToPresent;
 @end
 
 @implementation ViewController
-
+- (BViewController *)viewControllerToPresent {
+	if(!_viewControllerToPresent) {
+		_viewControllerToPresent = [[BViewController alloc]init];
+		_viewControllerToPresent.modalPresentationStyle = UIModalPresentationFullScreen;
+	}
+	return _viewControllerToPresent;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -26,6 +32,11 @@
     
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+	[super viewDidAppear:animated];
+//		[self testPresentViewContrller];
+		[self testPresentingViewController];
+}
 
 //=================================================================
 //                         NSArray_Test
@@ -356,6 +367,37 @@
     [person objectForKey:@"key"];
 }
 
+- (void)testPresentViewContrller {
+	UIViewController * top = [UIApplication sharedApplication].keyWindow.rootViewController;
+	[top presentViewController:self.viewControllerToPresent animated:YES completion:nil];
+	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+		[top presentViewController:self.viewControllerToPresent animated:YES completion:^{
+//			[top dismissViewControllerAnimated:NO completion:nil];
+		}];
+	});
+}
+
+- (void)testPresentingViewController {
+	UIViewController * top;
+	UIApplication *application = [UIApplication sharedApplication];
+	NSSet<UIScene *> *connectedScenes = application.connectedScenes;
+	for (UIScene *scene in connectedScenes) {
+	  if ([scene isKindOfClass:[UIWindowScene class]]) {
+		UIWindowScene *windowScene = (UIWindowScene *)scene;
+		for (UIWindow *window in windowScene.windows) {
+		  if (window.isKeyWindow) {
+			  top = window.rootViewController;
+		  }
+		}
+	  }
+	}
+	[self presentViewController:self.viewControllerToPresent animated:YES completion:nil];
+	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+		[self presentViewController:self.viewControllerToPresent animated:YES completion:^{
+//			[top dismissViewControllerAnimated:NO completion:nil];
+		}];
+	});
+}
 //=================================================================
 //                      执行所有test的方法
 //=================================================================
@@ -411,6 +453,8 @@
     
     [self testNoSelectorCrash];
     [self testNoSelectorCrash2];
+	
+
 }
 
 

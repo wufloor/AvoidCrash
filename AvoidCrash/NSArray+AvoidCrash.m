@@ -34,12 +34,13 @@
         Class __NSArrayI = NSClassFromString(@"__NSArrayI");
         Class __NSSingleObjectArrayI = NSClassFromString(@"__NSSingleObjectArrayI");
         Class __NSArray0 = NSClassFromString(@"__NSArray0");
-        
-        
+		Class __NSPlaceholderArray = NSClassFromString(@"__NSPlaceholderArray");
+		Class NSConstantArray = NSClassFromString(@"NSConstantArray");
         //objectsAtIndexes:
         [AvoidCrash exchangeInstanceMethod:__NSArray method1Sel:@selector(objectsAtIndexes:) method2Sel:@selector(avoidCrashObjectsAtIndexes:)];
         
-        
+		[AvoidCrash exchangeInstanceMethod:[self class] method1Sel:@selector(objectsAtIndexes:) method2Sel:@selector(NSArrayAvoidCrashObjectsAtIndexes:)];
+
         //objectAtIndex:
         
         [AvoidCrash exchangeInstanceMethod:__NSArrayI method1Sel:@selector(objectAtIndex:) method2Sel:@selector(__NSArrayIAvoidCrashObjectAtIndex:)];
@@ -49,10 +50,9 @@
         [AvoidCrash exchangeInstanceMethod:__NSArray0 method1Sel:@selector(objectAtIndex:) method2Sel:@selector(__NSArray0AvoidCrashObjectAtIndex:)];
         
         //objectAtIndexedSubscript:
-        if (AvoidCrashIsiOS(11.0)) {
-            [AvoidCrash exchangeInstanceMethod:__NSArrayI method1Sel:@selector(objectAtIndexedSubscript:) method2Sel:@selector(__NSArrayIAvoidCrashObjectAtIndexedSubscript:)];
-        }
-        
+		[AvoidCrash exchangeInstanceMethod:__NSArrayI method1Sel:@selector(objectAtIndexedSubscript:) method2Sel:@selector(__NSArrayIAvoidCrashObjectAtIndexedSubscript:)];
+		
+		[AvoidCrash exchangeInstanceMethod:NSConstantArray method1Sel:@selector(objectAtIndexedSubscript:) method2Sel:@selector(NSConstantArrayIAvoidCrashObjectAtIndexedSubscript:)];
         
         //getObjects:range:
         [AvoidCrash exchangeInstanceMethod:__NSArray method1Sel:@selector(getObjects:range:) method2Sel:@selector(NSArrayAvoidCrashGetObjects:range:)];
@@ -60,6 +60,13 @@
         [AvoidCrash exchangeInstanceMethod:__NSSingleObjectArrayI method1Sel:@selector(getObjects:range:) method2Sel:@selector(__NSSingleObjectArrayIAvoidCrashGetObjects:range:)];
         
         [AvoidCrash exchangeInstanceMethod:__NSArrayI method1Sel:@selector(getObjects:range:) method2Sel:@selector(__NSArrayIAvoidCrashGetObjects:range:)];
+		
+		[AvoidCrash exchangeInstanceMethod:NSConstantArray method1Sel:@selector(getObjects:range:) method2Sel:@selector(NSConstantArrayAvoidCrashGetObjects:range:)];
+
+		
+		//initWithObjects:count:
+		[AvoidCrash exchangeInstanceMethod:__NSPlaceholderArray method1Sel:@selector(initWithObjects:count:) method2Sel:@selector(__NSPlaceholderArrayAvoidCrashInitWithObjects:count:)];
+
     });
     
     
@@ -123,6 +130,21 @@
 
 }
 
+- (id)NSConstantArrayIAvoidCrashObjectAtIndexedSubscript:(NSUInteger)idx {
+	id object = nil;
+	
+	@try {
+		object = [self NSConstantArrayIAvoidCrashObjectAtIndexedSubscript:idx];
+	}
+	@catch (NSException *exception) {
+		NSString *defaultToDo = AvoidCrashDefaultReturnNil;
+		[AvoidCrash noteErrorWithException:exception defaultToDo:defaultToDo];
+	}
+	@finally {
+		return object;
+	}
+
+}
 
 //=================================================================
 //                       objectsAtIndexes:
@@ -142,6 +164,21 @@
         return returnArray;
     }
 }
+
+- (NSArray *)NSArrayAvoidCrashObjectsAtIndexes:(NSIndexSet *)indexes {
+	
+	NSArray *returnArray = nil;
+	@try {
+		returnArray = [self NSArrayAvoidCrashObjectsAtIndexes:indexes];
+	} @catch (NSException *exception) {
+		NSString *defaultToDo = AvoidCrashDefaultReturnNil;
+		[AvoidCrash noteErrorWithException:exception defaultToDo:defaultToDo];
+		
+	} @finally {
+		return returnArray;
+	}
+}
+
 
 
 //=================================================================
@@ -252,7 +289,48 @@
     }
 }
 
+- (void)NSConstantArrayAvoidCrashGetObjects:(__unsafe_unretained id  _Nonnull *)objects range:(NSRange)range {
+	
+	@try {
+		[self NSConstantArrayAvoidCrashGetObjects:objects range:range];
+	} @catch (NSException *exception) {
+		
+		NSString *defaultToDo = AvoidCrashDefaultIgnore;
+		[AvoidCrash noteErrorWithException:exception defaultToDo:defaultToDo];
+		
+	} @finally {
+		
+	}
+}
 
+
+- (instancetype)__NSPlaceholderArrayAvoidCrashInitWithObjects:(__unsafe_unretained id  _Nonnull *)objects count:(NSUInteger)cnt {
+	id instance = nil;
+	
+	@try {
+		instance = [self __NSPlaceholderArrayAvoidCrashInitWithObjects:objects count:cnt];
+	}
+	@catch (NSException *exception) {
+		
+		NSString *defaultToDo = @"AvoidCrash default is to remove nil object and instance a array.";
+		[AvoidCrash noteErrorWithException:exception defaultToDo:defaultToDo];
+		
+		//以下是对错误数据的处理，把为nil的数据去掉,然后初始化数组
+		NSInteger newObjsIndex = 0;
+		id  _Nonnull __unsafe_unretained newObjects[cnt];
+		
+		for (int i = 0; i < cnt; i++) {
+			if (objects[i] != nil) {
+				newObjects[newObjsIndex] = objects[i];
+				newObjsIndex++;
+			}
+		}
+		instance = [self __NSPlaceholderArrayAvoidCrashInitWithObjects:newObjects count:newObjsIndex];
+	}
+	@finally {
+		return instance;
+	}
+}
 
 
 @end

@@ -158,6 +158,10 @@
     NSString *ageKey = nil;
     dict[ageKey] = @(25);
     NSLog(@"%@",dict);
+	dict[@"name"] = @"wufloor";
+	NSLog(@"%@",dict);
+
+
 }
 
 - (void)NSMutableDictionary_Test_SetObjectForKey_2 {
@@ -166,6 +170,9 @@
     NSString *ageKey = nil;
     [dict setObject:@(25) forKey:ageKey];
     NSLog(@"%@",dict);
+	[dict setObject:@(25) forKey:@"NoneNil"];
+	NSLog(@"%@",dict);
+
 }
 
 

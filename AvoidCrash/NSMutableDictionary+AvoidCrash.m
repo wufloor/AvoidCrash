@@ -43,15 +43,21 @@
 
 - (void)avoidCrashSetObject:(id)anObject forKey:(id<NSCopying>)aKey {
     
-    @try {
-        [self avoidCrashSetObject:anObject forKey:aKey];
-    }
-    @catch (NSException *exception) {
-        [AvoidCrash noteErrorWithException:exception defaultToDo:AvoidCrashDefaultIgnore];
-    }
-    @finally {
-        
-    }
+//    @try {
+//        [self avoidCrashSetObject:anObject forKey:aKey];
+//    }
+//    @catch (NSException *exception) {
+//        [AvoidCrash noteErrorWithException:exception defaultToDo:AvoidCrashDefaultIgnore];
+//    }
+//    @finally {
+//        
+//    }
+	if (anObject == nil || aKey  == nil) {
+		NSString * className = [NSString stringWithFormat:@"%@",NSStringFromClass([self class])];
+		[AvoidCrash noteErrorWithName:className defaultToDo:AvoidCrashDefaultIgnore];
+		return;
+	}
+	[self avoidCrashSetObject:anObject forKey:aKey];
 }
 
 //=================================================================
@@ -59,15 +65,23 @@
 //=================================================================
 #pragma mark - setObject:forKeyedSubscript:
 - (void)avoidCrashSetObject:(id)obj forKeyedSubscript:(id<NSCopying>)key {
-    @try {
-        [self avoidCrashSetObject:obj forKeyedSubscript:key];
-    }
-    @catch (NSException *exception) {
-        [AvoidCrash noteErrorWithException:exception defaultToDo:AvoidCrashDefaultIgnore];
-    }
-    @finally {
-        
-    }
+//    @try {
+//        [self avoidCrashSetObject:obj forKeyedSubscript:key];
+//    }
+//    @catch (NSException *exception) {
+//        [AvoidCrash noteErrorWithException:exception defaultToDo:AvoidCrashDefaultIgnore];
+//    }
+//    @finally {
+//        
+//    }
+	
+	if (obj == nil || key  == nil) {
+		NSString * className = [NSString stringWithFormat:@"%@",NSStringFromClass([self class])];
+		[AvoidCrash noteErrorWithName:className defaultToDo:AvoidCrashDefaultIgnore];
+		return;
+	}
+	[self avoidCrashSetObject:obj forKeyedSubscript:key];
+
 }
 
 

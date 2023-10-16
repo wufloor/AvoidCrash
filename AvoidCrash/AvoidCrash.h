@@ -113,5 +113,6 @@
 
 + (void)noteErrorWithException:(NSException *)exception defaultToDo:(NSString *)defaultToDo;
 
++ (void)noteErrorWithName:(NSString *)error defaultToDo:(NSString *)defaultToDo;
 
 @end
